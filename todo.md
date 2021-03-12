@@ -1,5 +1,7 @@
 ### TODO
 
+1. Change rendering?
+   - Experiment with a board that is just one unit instead of 5 rows of 5
 1. Testing
    - Jest?
    - Testing Library?
