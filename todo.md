@@ -18,6 +18,7 @@
    - shuffle array, then slice each next element
 1. Styling
    - Tailwind CSS?
+   - Dark mode
 1. Types
    - Actually use types for props and state
    - Make my own types
