@@ -1,0 +1,11 @@
+.square {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.occupied {
+  background-color: black;
+}
