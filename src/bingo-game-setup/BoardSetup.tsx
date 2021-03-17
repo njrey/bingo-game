@@ -14,7 +14,7 @@ export class BoardSetup extends Component<
   }
 
   buildBoardText() {
-    const board = this.state.tileList.split(",");
+    const board = this.state.tileList.split(",").map((tile) => tile.trim());
     if (board.length !== 25) {
       alert(`Bad board, board length is ${board.length}, should be 25`);
     } else {

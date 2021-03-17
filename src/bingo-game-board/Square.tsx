@@ -12,7 +12,6 @@ export class Square extends Component<
     };
   }
   occupy() {
-    console.log(`occupied: ${this.state.occupied}`);
     this.setState({
       occupied: !this.state.occupied,
     });

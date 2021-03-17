@@ -2,6 +2,9 @@
 
 1. Change rendering?
    - Experiment with a board that is just one unit instead of 5 rows of 5
+1. Board array tuple type
+   - Use TS to make our board array limited to 25 items
+   - Tuple types may work: https://stackoverflow.com/questions/52489261/typescript-can-i-define-an-n-length-tuple-type
 1. Testing
    - Jest?
    - Testing Library?
