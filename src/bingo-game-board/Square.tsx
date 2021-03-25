@@ -17,14 +17,12 @@ export class Square extends Component<
     });
   }
   render() {
+    let squareOccupied = `square ${
+      this.state.occupied ? "occupied" : "unoccupied"
+    }`;
     return (
-      <div className="square">
-        <div
-          onClick={() => this.occupy()}
-          className={this.state.occupied ? "occupied" : "unoccupied"}
-        >
-          {this.props.tileText}
-        </div>
+      <div onClick={() => this.occupy()} className={squareOccupied}>
+        {this.props.tileText}
       </div>
     );
   }

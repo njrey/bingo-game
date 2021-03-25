@@ -36,7 +36,7 @@ export class BoardGrid extends Component<{ tileList: Array<string> }, {}> {
     }
     return arr;
   }
-  createBoardArray(arr: string[]): Array<Array<SquareTile>> {
+  create2dBoardArray(arr: string[]): Array<Array<SquareTile>> {
     let board: Array<Array<SquareTile>> = [];
     let arrIndex = 0;
     for (let i = 0; i < 5; i++) {
@@ -52,39 +52,23 @@ export class BoardGrid extends Component<{ tileList: Array<string> }, {}> {
     }
     return board;
   }
+  create1dBoardArray(arr: string[]): Array<SquareTile> {
+    let board: Array<SquareTile> = [];
+    arr.forEach((item, index) =>
+      board.push({ textContent: item, boardIndex: index })
+    );
+    return board;
+  }
   render() {
-    if (this.props.tileList.length !== 25) {
-      return <div>Create a board!</div>;
-    }
-    let gameBoard: Array<
-      Array<{ textContent: string; boardIndex: number }>
-    > = this.createBoardArray(this.shuffle(this.props.tileList));
+    let gameBoard: Array<SquareTile> = this.create1dBoardArray(
+      this.shuffle(this.props.tileList)
+    );
 
     return (
-      <div className="board">
+      <div>
         <h1>Bingo</h1>
-        <div className="board-row">
-          {gameBoard[0].map((square) => (
-            <Square key={square.boardIndex} tileText={square.textContent} />
-          ))}
-        </div>
-        <div className="board-row">
-          {gameBoard[1].map((square) => (
-            <Square key={square.boardIndex} tileText={square.textContent} />
-          ))}
-        </div>
-        <div className="board-row">
-          {gameBoard[2].map((square) => (
-            <Square key={square.boardIndex} tileText={square.textContent} />
-          ))}
-        </div>
-        <div className="board-row">
-          {gameBoard[3].map((square) => (
-            <Square key={square.boardIndex} tileText={square.textContent} />
-          ))}
-        </div>
-        <div className="board-row">
-          {gameBoard[4].map((square) => (
+        <div className="grid-board">
+          {gameBoard.map((square) => (
             <Square key={square.boardIndex} tileText={square.textContent} />
           ))}
         </div>

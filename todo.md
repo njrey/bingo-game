@@ -1,7 +1,13 @@
 ### TODO
 
-1. Change rendering?
-   - Experiment with a board that is just one unit instead of 5 rows of 5
+1. Where I left off
+
+   - Made board a single array of 25
+   - Used CSS grid for layout
+   - Next: ipa
+
+1. iPad Css
+   - somewhere between a large screen and a phone, add a mediaquery for ipads
 1. Board array tuple type
    - Use TS to make our board array limited to 25 items
    - Tuple types may work: https://stackoverflow.com/questions/52489261/typescript-can-i-define-an-n-length-tuple-type
@@ -29,3 +35,7 @@
    - Make my own types
 1. React Hooks
    - Can I use that?
+1. Have a 'board setup state' and a 'play the game state'
+   - We don't need both on the screen at the same time
+1. Make it look better with styling, theme and animations
+   - maybe even add some color

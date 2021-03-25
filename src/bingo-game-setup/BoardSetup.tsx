@@ -1,4 +1,5 @@
 import { Component, ChangeEvent } from "react";
+import "./BoardSetup.css";
 
 export class BoardSetup extends Component<
   { handleTilesTextChange: (tilesTextArr: string[]) => void },

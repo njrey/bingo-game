@@ -1,7 +1,21 @@
-.board {
+h1 {
   text-align: center;
 }
-.board-row {
-  display: flex;
-  justify-content: center;
+@media (min-width: 500px) {
+  .grid-board {
+    margin: 0 auto;
+    text-align: center;
+    display: grid;
+    width: 39%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 101px 101px 101px 101px 101px 101px;
+  }
+}
+@media (max-width: 499px) {
+  .grid-board {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 101px 101px 101px 101px 101px 101px;
+  }
 }
