@@ -36,22 +36,7 @@ export class BoardGrid extends Component<{ tileList: Array<string> }, {}> {
     }
     return arr;
   }
-  create2dBoardArray(arr: string[]): Array<Array<SquareTile>> {
-    let board: Array<Array<SquareTile>> = [];
-    let arrIndex = 0;
-    for (let i = 0; i < 5; i++) {
-      board.push([]);
-      for (let j = 0; j < 5; j++) {
-        let squareTile: SquareTile = {
-          textContent: arr[arrIndex],
-          boardIndex: arrIndex,
-        };
-        board[i].push(squareTile);
-        arrIndex++;
-      }
-    }
-    return board;
-  }
+
   create1dBoardArray(arr: string[]): Array<SquareTile> {
     let board: Array<SquareTile> = [];
     arr.forEach((item, index) =>
