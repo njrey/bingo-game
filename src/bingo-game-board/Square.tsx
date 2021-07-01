@@ -21,7 +21,11 @@ export class Square extends Component<
       this.state.occupied ? "occupied" : "unoccupied"
     }`;
     return (
-      <div onClick={() => this.occupy()} className={squareOccupied}>
+      <div
+        tabIndex={0}
+        onClick={() => this.occupy()}
+        className={squareOccupied}
+      >
         {this.props.tileText}
       </div>
     );

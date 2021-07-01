@@ -6,6 +6,15 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+.square:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.square:focus {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
 }
 .occupied {
   background-color: black;

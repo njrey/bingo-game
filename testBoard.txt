@@ -24,4 +24,4 @@ theorist,
 charity,
 bury,
 banish,
-hunter
+free space
