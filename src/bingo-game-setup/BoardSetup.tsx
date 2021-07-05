@@ -1,42 +1,36 @@
-import { Component, ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import "./BoardSetup.css";
 
-export class BoardSetup extends Component<
-  { handleTilesTextChange: Dispatch<SetStateAction<string[]>> },
-  { tileList: string }
-> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      tileList: "",
-    };
-    this.buildBoardText = this.buildBoardText.bind(this);
-    this.handleTileTextInput = this.handleTileTextInput.bind(this);
-  }
-
-  buildBoardText() {
-    const board = this.state.tileList.split(",").map((tile) => tile.trim());
-    if (board.length !== 25) {
-      alert(`Bad board, board length is ${board.length}, should be 25`);
-    } else {
-      this.props.handleTilesTextChange(board);
-    }
-  }
-
-  handleTileTextInput(event: ChangeEvent<HTMLTextAreaElement>) {
-    this.setState({ tileList: event.target.value });
-  }
-
-  render() {
-    return (
-      <div className="board-setup">
-        <h1>Setup</h1>
-        <p>Input a comma-separated list for Bingo tiles</p>
-        <textarea name="tilesInput" onInput={this.handleTileTextInput} />
-        <div>
-          <button onClick={this.buildBoardText}>Setup</button>
-        </div>
+export const BoardSetup = ({
+  handleTilesTextChange,
+}: {
+  handleTilesTextChange: Dispatch<SetStateAction<string[]>>;
+}) => {
+  const [tileList, setTileList] = useState("");
+  return (
+    <div className="board-setup">
+      <h1>Setup</h1>
+      <p>Input a comma-separated list for Bingo tiles</p>
+      <textarea
+        name="tilesInput"
+        onInput={(event: ChangeEvent<HTMLTextAreaElement>) =>
+          setTileList(event.target.value)
+        }
+      />
+      <div>
+        <button
+          onClick={() => {
+            const board = tileList.split(",").map((tile) => tile.trim());
+            if (board.length !== 25) {
+              alert(`Bad board, board length is ${board.length}, should be 25`);
+            } else {
+              handleTilesTextChange(board);
+            }
+          }}
+        >
+          Setup
+        </button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
