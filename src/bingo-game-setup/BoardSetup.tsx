@@ -1,8 +1,8 @@
-import { Component, ChangeEvent } from "react";
+import { Component, ChangeEvent, Dispatch, SetStateAction } from "react";
 import "./BoardSetup.css";
 
 export class BoardSetup extends Component<
-  { handleTilesTextChange: (tilesTextArr: string[]) => void },
+  { handleTilesTextChange: Dispatch<SetStateAction<string[]>> },
   { tileList: string }
 > {
   constructor(props: any) {
