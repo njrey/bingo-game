@@ -1,33 +1,18 @@
-import { Component } from "react";
+import { useState } from "react";
 import "./Square.css";
 
-export class Square extends Component<
-  { tileText: string },
-  { occupied: boolean }
-> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      occupied: false,
-    };
-  }
-  occupy() {
-    this.setState({
-      occupied: !this.state.occupied,
-    });
-  }
-  render() {
-    let squareOccupied = `square ${
-      this.state.occupied ? "occupied" : "unoccupied"
-    }`;
-    return (
-      <div
-        tabIndex={0}
-        onClick={() => this.occupy()}
-        className={squareOccupied}
-      >
-        {this.props.tileText}
-      </div>
-    );
-  }
-}
+export const Square = ({ ...props }) => {
+  const { tileText } = props;
+  const [occupied, setOccupied] = useState(false);
+
+  let squareOccupied = `square ${occupied ? "occupied" : "unoccupied"}`;
+  return (
+    <div
+      tabIndex={0}
+      onClick={() => setOccupied(!occupied)}
+      className={squareOccupied}
+    >
+      {tileText}
+    </div>
+  );
+};
