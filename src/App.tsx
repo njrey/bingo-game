@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
+      <h1 data-testid="app-header">Bingo</h1>
       <BingoGame />
     </div>
   );
