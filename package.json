@@ -24,7 +24,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "craco test --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,6 +43,16 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts*"
+    ],
+    "coveragePathIgnorePatterns": [
+      "src/reportWebVitals.ts",
+      "src/react-app-env.d.ts",
+      "src/index.tsx"
     ]
   }
 }
