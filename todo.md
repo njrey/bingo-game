@@ -2,9 +2,8 @@
 
 1. Where I left off
 
-   - Made board a single array of 25
-   - Used CSS grid for layout
-   - Next: ipa
+   - Tested some of BoardSetup
+   - Done testing that for now since I want to change behavior of board setup
 
 1. iPad Css
    - somewhere between a large screen and a phone, add a mediaquery for ipads
