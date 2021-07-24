@@ -10,9 +10,6 @@
 1. Board array tuple type
    - Use TS to make our board array limited to 25 items
    - Tuple types may work: https://stackoverflow.com/questions/52489261/typescript-can-i-define-an-n-length-tuple-type
-1. Testing
-   - Jest?
-   - Testing Library?
 1. Handle long inputs for square text
    - char limit?
 1. Circle for 'occupied' state
