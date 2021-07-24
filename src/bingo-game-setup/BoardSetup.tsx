@@ -8,7 +8,7 @@ export const BoardSetup = ({
 }) => {
   const [tileList, setTileList] = useState("");
   return (
-    <div className="board-setup">
+    <div data-testid="board-setup" className="board-setup">
       <h1>Setup</h1>
       <p>Input a comma-separated list for Bingo tiles</p>
       <textarea
@@ -19,6 +19,7 @@ export const BoardSetup = ({
       />
       <div>
         <button
+          data-testid="setup-btn"
           onClick={() => {
             const board = tileList.split(",").map((tile) => tile.trim());
             if (board.length !== 25) {
