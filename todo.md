@@ -16,21 +16,13 @@
 1. Calculate winner
 1. Inputs to create board
    - tile by tile?
-   - ~~list of 25 items pasted into a textbox~~
+   - "generate board" button
 1. Board setup input error
    - If board length != 25
-   - popup modal says "Board is x tiles long, add/subtract y from input list
-1. Randomizer
-   - Figure out how to randomly assign board
-   - shuffle array, then slice each next element
+   - Use popup modal says "Board is x tiles long, add/subtract y from input list instead of alert
 1. Styling
    - Tailwind CSS?
    - Dark mode
-1. Types
-   - Actually use types for props and state
-   - Make my own types
-1. React Hooks
-   - Can I use that?
 1. Have a 'board setup state' and a 'play the game state'
    - We don't need both on the screen at the same time
 1. Make it look better with styling, theme and animations
