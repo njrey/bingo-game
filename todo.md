@@ -2,8 +2,13 @@
 
 1. Where I left off
 
-   - Tested some of BoardSetup
-   - Done testing that for now since I want to change behavior of board setup
+   - Board Setup V2
+   - Tile-By-Tile editing
+   - Also: text area for mass edit
+   - Tile-By-Tile updates text area and vice versa
+   - Validation: Char limit for tile
+   - Edit button with icon starts "Edit Mode"
+   - Click again to turn off "Edit Mode"
 
 1. iPad Css
    - somewhere between a large screen and a phone, add a mediaquery for ipads
