@@ -2,6 +2,14 @@
 
 1. Where I left off
 
+   - Backend
+     - Add a database layer
+     - Initialize db in app-config
+     - Learn flask app architecture
+     - Fix GET and create POST
+     - Faster way to refresh back-end code after change
+   - Clean up fetches
+     - Add errors handling
    - Board Setup V2
    - Tile-By-Tile editing
    - Also: text area for mass edit

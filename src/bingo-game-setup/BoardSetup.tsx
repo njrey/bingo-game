@@ -9,7 +9,6 @@ export const BoardSetup = ({
   const [tileList, setTileList] = useState("");
   return (
     <div data-testid="board-setup" className="board-setup">
-      <h1>Setup</h1>
       <p>Input a comma-separated list for Bingo tiles</p>
       <textarea
         name="tilesInput"
