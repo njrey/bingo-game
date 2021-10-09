@@ -8,6 +8,7 @@
      - Learn flask app architecture
      - Fix GET and create POST
      - Faster way to refresh back-end code after change
+     - Find a real way to do CORS locally
    - Clean up fetches
      - Add errors handling
    - Board Setup V2
