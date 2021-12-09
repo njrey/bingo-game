@@ -28,7 +28,7 @@ export const BingoGame = () => {
 };
 
 async function fetchBoards(): Promise<string[]> {
-  const response = await fetch("http://localhost:5000/boards");
+  const response = await fetch("http://localhost:5000/boards/boards");
   type Board = {
     name: string;
     squares: string[];
@@ -44,7 +44,7 @@ async function fetchBoards(): Promise<string[]> {
 }
 
 async function saveBoards(boards: string[]): Promise<void> {
-  await window.fetch("http://localhost:5000/boards", {
+  await window.fetch("http://localhost:5000/boards/boards", {
     method: "POST",
     headers: {
       "content-type": "application/json;charset=UTF-8",
