@@ -2,11 +2,11 @@
 
 1. Where I left off
 
+   - In board list, when a board is clicked, display that board in the grid, display a selected state in the list
+   - Working on board edit
    - Backend
-     - Add a database layer
-     - Initialize db in app-config
      - Learn flask app architecture
-     - Fix GET and create POST
+     - Fix CORS
      - Faster way to refresh back-end code after change
    - Clean up fetches
      - Add errors handling
