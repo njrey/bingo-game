@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { BoardGrid } from "./BoardGrid";
 import { BoardSetup } from "../bingo-game-setup/BoardSetup";
-import BoardList from "../bingo-game-board-list/BoardList";
+import BoardList from "../BoardList";
 import "./BingoGame.css";
 
-type Board = {
+export type Board = {
   name: string;
   squares: string[];
 };
@@ -12,6 +12,7 @@ type Board = {
 export const BingoGame = () => {
   const [tileList, setTileList] = useState<string[]>([]);
   const [boardsList, setBoardsList] = useState<Board[]>([]);
+  const [boardName, setBoardName] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,16 +25,16 @@ export const BingoGame = () => {
 
   useEffect(() => {
     if (tileList.length === 25) {
-      saveBoards(tileList);
+      // saveBoards({ squares: tileList, name: boardName });
     }
   }, [tileList]);
 
   return (
     <div className="bingo-game">
-      <BoardSetup handleTilesTextChange={setTileList} />
+      <BoardSetup boards={boardsList} />
       <div className="boards-container">
         <div>
-          <BoardList boards={boardsList}></BoardList>
+          <BoardList setTiles={setTileList} boards={boardsList}></BoardList>
         </div>
         <BoardGrid tileList={tileList} />
       </div>
@@ -55,14 +56,4 @@ async function fetchBoards(): Promise<{
     theseBoards = boards && boards ? boards.squares : [];
   }
   return { tileList: theseBoards, boardsList: boardsList };
-}
-
-async function saveBoards(boards: string[]): Promise<void> {
-  await window.fetch("http://localhost:5000/boards/", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json;charset=UTF-8",
-    },
-    body: JSON.stringify(boards),
-  });
 }
