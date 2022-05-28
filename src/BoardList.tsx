@@ -6,7 +6,7 @@ export type BoardListProps = {
   setTiles: Function;
 };
 
-const BoardList = ({ ...props }) => {
+export const BoardList = ({ ...props }) => {
   const { boards, setTiles } = props;
   const [selectedBoard, setSelectedBoard] = useState<string>("");
 

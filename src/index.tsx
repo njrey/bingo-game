@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ChakraProvider } from "@chakra-ui/react";
 
-ReactDOM.render(
+const el = document.getElementById("root");
+if (el === null) throw new Error("Root container missing in index.html");
+const root = createRoot(el);
+
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <ChakraProvider>
+      <App />
+    </ChakraProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

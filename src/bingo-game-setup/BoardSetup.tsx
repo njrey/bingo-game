@@ -1,4 +1,5 @@
-import { ChangeEvent, Dispatch, FunctionComponent, useState } from "react";
+import { ChangeEvent, FunctionComponent, useState } from "react";
+import { Input, Textarea } from "@chakra-ui/react";
 import { Board } from "../bingo-game-board/BingoGame";
 import "./BoardSetup.css";
 
@@ -22,14 +23,14 @@ export const BoardSetup: FunctionComponent<BoardSetupProps> = ({
   return (
     <div data-testid="board-setup" className="board-setup">
       <p>Name</p>
-      <input
+      <Input
         onChange={(event: ChangeEvent<HTMLInputElement>) =>
           setBoardName(event.target.value)
         }
         type="text"
-      ></input>
+      ></Input>
       <p>Input a comma-separated list for Bingo tiles</p>
-      <textarea
+      <Textarea
         name="tilesInput"
         onInput={(event: ChangeEvent<HTMLTextAreaElement>) =>
           setTileList(event.target.value)
