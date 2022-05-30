@@ -2,17 +2,7 @@ import { useState, useEffect } from "react";
 import { BoardGrid } from "./BoardGrid";
 import { BoardSetup } from "../bingo-game-setup/BoardSetup";
 import { BoardList } from "../BoardList";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
+
 import "./BingoGame.css";
 
 export type Board = {
@@ -39,28 +29,10 @@ export const BingoGame = () => {
       // saveBoards({ squares: tileList, name: boardName });
     }
   }, [tileList]);
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <div className="bingo-game">
-      <Button onClick={onOpen}>Create New</Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Create Board</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <BoardSetup boards={boardsList} />
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Save
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <BoardSetup boards={boardsList} />
       <div className="boards-container">
         <div>
           <BoardList setTiles={setTileList} boards={boardsList}></BoardList>

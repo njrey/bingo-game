@@ -2,21 +2,33 @@
 
 1. Where I left off
 
-   - In board list, when a board is clicked, display that board in the grid, display a selected state in the list
-   - Working on board edit
+   - How do I save from the modal correctly?
+   - formik validation?
+   - SWR would be nice for caching+dedupe (now that react 18 strict is annoying)
+   - Selected state: don't just display name at top in heading
+   - Board Edit
+
+     - Edit button with icon starts "Edit Mode"
+     - Click again to turn off "Edit Mode"
+     - Tile-By-Tile editing
+     - Also: text area for mass edit
+     - Validation: Char limit for tile
+     - Tile-By-Tile updates text area and vice versa
+     - Use chakra <Editable>?
+     - Backend needs PUT by id
+
    - Backend
+     - Validation
+       - on tile length and board (25 max)
+       - name is required
      - Learn flask app architecture
      - Fix CORS
+     - Can I avoid cors? Run all in one port?
      - Faster way to refresh back-end code after change
    - Clean up fetches
-     - Add errors handling
+     - Add error-handling
    - Board Setup V2
-   - Tile-By-Tile editing
-   - Also: text area for mass edit
-   - Tile-By-Tile updates text area and vice versa
-   - Validation: Char limit for tile
-   - Edit button with icon starts "Edit Mode"
-   - Click again to turn off "Edit Mode"
+     - Show a sample board as they add items
 
 1. iPad Css
    - somewhere between a large screen and a phone, add a mediaquery for ipads
