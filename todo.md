@@ -2,6 +2,10 @@
 
 1. Where I left off
 
+   - tile.split in post is bad I think
+   - add tests
+   - actually use typescript
+     - get rid of 'any' everytwhere
    - SWR would be nice for caching+dedupe (now that react 18 strict is annoying)
    - formik validation?
      - yum + formik seems cool

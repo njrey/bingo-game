@@ -23,7 +23,7 @@ export const BoardSetup: FunctionComponent<BoardSetupProps> = ({
   const saveBoard = async ({ boardName, tiles }: any) => {
     await fetch(`http://localhost:5000/boards/`, {
       method: "POST",
-      body: JSON.stringify({ name: boardName, squares: tiles }),
+      body: JSON.stringify({ name: boardName, squares: tiles.split(",") }),
       headers: {
         "content-type": "application/json;charset=UTF-8",
       },
