@@ -2,9 +2,14 @@
 
 1. Where I left off
 
-   - How do I save from the modal correctly?
-   - formik validation?
    - SWR would be nice for caching+dedupe (now that react 18 strict is annoying)
+   - formik validation?
+     - yum + formik seems cool
+   - loading states
+     - loading inside modal after "save"
+     - loading on landing page for board
+     - loading on landing page for boardlist
+   - update board list after modal save
    - Selected state: don't just display name at top in heading
    - Board Edit
 

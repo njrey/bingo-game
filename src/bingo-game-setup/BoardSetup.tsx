@@ -1,11 +1,6 @@
-import { ChangeEvent, FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import {
   Button,
-  Input,
-  Textarea,
-  FormControl,
-  FormLabel,
-  FormHelperText,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -15,79 +10,74 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
+import { Formik, useFormikContext } from "formik";
 import { Board } from "../bingo-game-board/BingoGame";
 import "./BoardSetup.css";
+import { BoardSetupForm } from "./BoardSetupForm";
 
 export type BoardSetupProps = { boards: Board[] };
 
 export const BoardSetup: FunctionComponent<BoardSetupProps> = ({
   boards,
 }: BoardSetupProps) => {
-  const [tileList, setTileList] = useState("");
-  const [boardName, setBoardName] = useState("");
-
-  const saveBoard = async (board: Board): Promise<void> => {
-    await window.fetch("http://localhost:5000/boards/", {
+  const saveBoard = async ({ boardName, tiles }: any) => {
+    await fetch(`http://localhost:5000/boards/`, {
       method: "POST",
+      body: JSON.stringify({ name: boardName, squares: tiles }),
       headers: {
         "content-type": "application/json;charset=UTF-8",
       },
-      body: JSON.stringify(board),
     });
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const onSave = () => {
-    const board = tileList.split(",").map((tile) => tile.trim());
-    // use formik to do this
-    if (board.length !== 25) {
-      alert(`Bad board, board length is ${board.length}, should be 25`);
-    } else {
-      saveBoard({ squares: board, name: boardName });
-    }
-    onClose();
-  };
   return (
     <div data-testid="board-setup" className="board-setup">
       <Button onClick={onOpen}>Create New</Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Create Board</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <FormControl id="board-name" isRequired variant="floating">
-              <Input
-                onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                  setBoardName(event.target.value)
-                }
-                type="text"
-                placeholder=" "
-              ></Input>
-              <FormLabel>Name</FormLabel>
-            </FormControl>
-            <FormControl id="tiles-input" isRequired variant="floating">
-              <Textarea
-                placeholder=" "
-                onInput={(event: ChangeEvent<HTMLTextAreaElement>) =>
-                  setTileList(event.target.value)
-                }
-              />
-              <FormLabel>Tiles</FormLabel>
-              <FormHelperText>
-                Input a comma-separated list for Bingo tiles
-              </FormHelperText>
-            </FormControl>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onSave}>
-              Save
-            </Button>
-            <Button variant="ghost">Cancel</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <Formik
+        validateOnChange
+        initialValues={{ boardName: "", tiles: "" }}
+        isInitialValid={false}
+        onSubmit={(values) => {
+          saveBoard(values);
+        }}
+      >
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalForm onClose={onClose}></ModalForm>
+        </Modal>
+      </Formik>
     </div>
+  );
+};
+
+const ModalForm = ({ onClose }: any) => {
+  const { submitForm, isValid } = useFormikContext();
+
+  return (
+    <ModalContent>
+      <ModalHeader>Create Board</ModalHeader>
+      <ModalCloseButton />
+      <ModalBody>
+        <BoardSetupForm></BoardSetupForm>
+      </ModalBody>
+
+      <ModalFooter>
+        <Button
+          disabled={!isValid}
+          colorScheme="blue"
+          mr={3}
+          onClick={(e: any) => {
+            submitForm();
+            onClose();
+          }}
+        >
+          Save
+        </Button>
+        <Button variant="ghost" onClick={onClose}>
+          Cancel
+        </Button>
+      </ModalFooter>
+    </ModalContent>
   );
 };
