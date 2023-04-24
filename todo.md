@@ -30,6 +30,7 @@
      - Fix CORS
      - Can I avoid cors? Run all in one port?
      - Faster way to refresh back-end code after change
+     - Find a real way to do CORS locally
    - Clean up fetches
      - Add error-handling
    - Board Setup V2
